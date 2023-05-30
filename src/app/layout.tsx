@@ -9,8 +9,10 @@ const inter = Inter({ subsets: ["latin"] });
 
 export default function RootLayout({
     children,
+    session,
 }: {
     children: React.ReactNode;
+    session: any;
 }) {
     return (
         <html
@@ -21,7 +23,7 @@ export default function RootLayout({
             )}
         >
             <body className="min-h-screen bg-slate-50 dark:bg-slate-900 antialiased">
-                <Providers>
+                <Providers session={session}>
                     <Toaster position="bottom-right" />
                     {/* @ts-expect-error Server Component */}
                     <Navbar />
